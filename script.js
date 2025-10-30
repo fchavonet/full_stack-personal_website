@@ -443,23 +443,14 @@ const realSlideCount = slideItems.length - 2;
 for (let slideNumber = 1; slideNumber <= realSlideCount; slideNumber++) {
   const dotButton = document.createElement("button");
   dotButton.classList.add(
-    "w-2", "h-2", "rounded-full",
-    "bg-zinc-500/75", "cursor-pointer",
-    "transition-colors", "duration-300", "ease-in-out"
+    "w-2", "h-2", "rounded-full", "bg-zinc-500/75", "transition-colors", "duration-300", "ease-in-out"
   );
 
   dotButton.setAttribute("data-index", slideNumber);
 
   dotButton.setAttribute("aria-label", "Aller à la diapositive " + slideNumber + " sur " + realSlideCount);
 
-  dotButton.addEventListener("click", function () {
-    if (!isTransitionLocked) {
-      currentIndex = parseInt(this.getAttribute("data-index"), 10);
-      goToSlide(currentIndex, true, 500);
-      resetAutoPlay();
-      updateDots();
-    }
-  });
+  
 
   dotsWrapper.appendChild(dotButton);
 }
@@ -771,7 +762,7 @@ AOS.init({
   debounceDelay: 50,
   throttleDelay: 100,
 
-  offset: 60,
+  offset: 0,
   delay: 0,
   duration: 500,
   easing: "ease-in-out",
