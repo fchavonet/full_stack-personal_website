@@ -52,6 +52,10 @@ function updateDesktopPadding() {
   // Bottom padding equals distance from bottom of navigation menu to bottom of viewport.
   const bottomPadding = window.innerHeight - navigationMenuRect.bottom;
   main.style.paddingBottom = bottomPadding + "px";
+
+  // Position the sticky experiment section with the same top offset as the profile section.
+  const experimentSticky = document.getElementById("experiment-sticky");
+  experimentSticky.style.top = profileRect.top + "px";
 }
 
 // Return the computed top padding value of the <body> element.
@@ -450,7 +454,7 @@ for (let slideNumber = 1; slideNumber <= realSlideCount; slideNumber++) {
 
   dotButton.setAttribute("aria-label", "Aller à la diapositive " + slideNumber + " sur " + realSlideCount);
 
-  
+
 
   dotsWrapper.appendChild(dotButton);
 }
