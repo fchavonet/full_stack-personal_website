@@ -9,7 +9,7 @@
     <meta name="description" content="Software Engineer, formé à la Holberton School, je mets ma capacité d’adaptation et ma créativité au service de solutions porteuses de sens.">
     <meta name="robots" content="index, follow">
 
-    <!-- Prevent theme flicker -->
+    <!-- Load saved theme -->
     <script>
         (() => {
             const theme = localStorage.getItem("theme");
@@ -39,22 +39,61 @@
 </head>
 
 <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-50 transition-colors duration-500">
-    <header>
-        <button class="relative w-5 h-5 cursor-pointer" onclick="toggleTheme()">
-            <!-- Sun -->
-            <svg class="absolute inset-0 w-full rotate-90 scale-0 opacity-0 dark:rotate-0 dark:scale-100 dark:opacity-100 transform transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-            </svg>
+    <header class="fixed inset-0 max-w-7xl mx-auto p-6 sm:p-12 flex flex-row justify-between items-start pointer-events-none z-50">
+        <h1 class="flex flex-row justify-center items-center gap-2 text-xs font-medium mono tracking-[0.24em] uppercase pointer-events-auto">
+            <span class="block w-3 h-3 bg-red-600"></span>
+            <a class="cursor-pointer" href="#hero-section">Fabien Chavonet</a>
+        </h1>
 
-            <!-- Moon -->
-            <svg class="absolute inset-0 w-full rotate-0 scale-100 opacity-100 dark:-rotate-90 dark:scale-0 dark:opacity-0 transform transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-            </svg>
-        </button>
+        <nav class="hidden sm:block pointer-events-auto cursor-pointer">
+            <ul class="flex flex-col justify-center items-end gap-1 text-xs font-light mono tracking-[0.24em] uppercase">
+                <li><a class="hover:text-red-600" href="#projects-section">Projets</a></li>
+                <li><a class="hover:text-red-600" href="#skills-section">Compétences</a></li>
+                <li><a class="hover:text-red-600" href="#contact-section">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
+    <main class="max-w-7xl mx-auto p-6 sm:p-12">
+        <!-- Hero section -->
+        <section id="hero-section" class="h-screen flex flex-col justify-center items-center">
+            <h2>
+                Software
+                <br>
+                Engineer
+            </h2>
+        </section>
 
+        <!-- Projects section -->
+        <section id="projects-section" class="h-screen">
+            <h2>Projets</h2>
+        </section>
+
+        <!-- Skills section -->
+        <section id="skills-section" class="h-screen">
+            <h2>Compétences</h2>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact-section" class="h-screen">
+            <h2>Contact</h2>
+        </section>
+
+        <div class="fixed inset-0 max-w-7xl mx-auto pointer-events-none z-50">
+            <button class="absolute right-0 top-0 sm:top-auto sm:bottom-0 p-6 sm:p-12 pointer-events-auto cursor-pointer" onclick="toggleTheme()">
+                <div class="relative w-4 h-4">
+                    <!-- Sun -->
+                    <svg class="absolute inset-0 w-full rotate-90 scale-0 opacity-0 dark:rotate-0 dark:scale-100 dark:opacity-100 transform transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                    </svg>
+
+                    <!-- Moon -->
+                    <svg class="absolute inset-0 w-full rotate-0 scale-100 opacity-100 dark:-rotate-90 dark:scale-0 dark:opacity-0 transform transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                    </svg>
+                </div>
+            </button>
+        </div>
     </main>
 </body>
 
