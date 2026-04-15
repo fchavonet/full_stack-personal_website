@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="antialiased scroll-smooth">
+<html lang="fr" class="antialiased bg-zinc-50 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-50 transition-colors duration-500 pointer-events-none select-none scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -28,40 +28,72 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
         @custom-variant dark (&:where(.dark, .dark *));
+
+        @layer components {
+            .custom-tooltip::before {
+                @apply text-xs normal-case;
+            }
+        }
     </style>
 
     <!-- Script -->
     <script src="./script.js" defer></script>
 </head>
 
-<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-50 transition-colors duration-500">
+<body>
     <header class="fixed inset-0 max-w-7xl mx-auto p-6 sm:p-12 flex flex-row justify-between items-start pointer-events-none z-50">
-        <h1 class="flex flex-row justify-center items-center gap-2 text-xs font-medium mono tracking-[0.24em] uppercase pointer-events-auto">
+        <h1 class="flex flex-row justify-center items-center gap-2 text-xs font-medium tracking-[0.24em] uppercase pointer-events-auto tooltip tooltip-bottom custom-tooltip" data-tip="Hello world!">
             <span class="block w-3 h-3 bg-red-600"></span>
-            <a class="cursor-pointer" href="#hero-section">Fabien Chavonet</a>
+            <a href="#hero-section">Fabien Chavonet</a>
         </h1>
 
         <nav class="hidden sm:block pointer-events-auto cursor-pointer">
-            <ul class="flex flex-col justify-center items-end gap-1 text-xs font-light mono tracking-[0.24em] uppercase">
-                <li><a class="hover:text-red-600" href="#projects-section">Projets</a></li>
-                <li><a class="hover:text-red-600" href="#skills-section">Compétences</a></li>
-                <li><a class="hover:text-red-600" href="#contact-section">Contact</a></li>
+            <ul class="flex flex-col justify-center items-end gap-1 text-xs font-light tracking-[0.24em] uppercase">
+                <li><a class="inline-block hover:text-red-600 hover:translate-x-1 transition-transform duration-300" href="#projects-section">Projets</a></li>
+                <li><a class="inline-block hover:text-red-600 hover:translate-x-1 transition-transform duration-300" href="#skills-section">Compétences</a></li>
+                <li><a class="inline-block hover:text-red-600 hover:translate-x-1 transition-transform duration-300" href="#contact-section">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="max-w-7xl mx-auto p-6 sm:p-12">
+    <main class="max-w-7xl mx-auto">
         <!-- Hero section -->
-        <section id="hero-section" class="h-screen flex flex-col justify-center items-center">
-            <h2>
-                Software
-                <br>
-                Engineer
-            </h2>
+        <section id="hero-section" class="min-h-screen flex flex-col justify-center items-center border-b border-zinc-500">
+            <div class="w-full flex flex-col justify-center items-center gap-12">
+                <h2 class="text-[12vw] font-extrabold uppercase tracking-tighter leading-[0.8]">
+                    Software
+                    <br>
+                    <span class="ps-[1vw]">Engineer</span>
+
+                    <span class="px-[0.25vw] text-[2vw] text-rotate font-light tracking-normal leading-none align-baseline text-zinc-50 bg-red-600">
+                        <span>
+                            <span class="w-full text-center">Designer</span>
+                            <span class="w-full text-center">Developer</span>
+                            <span class="w-full text-center">Dreamer</span>
+                        </span>
+                    </span>
+                </h2>
+
+                <div class="px-6 sm:px-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <p class="text-sm uppercase whitespace-nowrap">
+                        <a class="inline-block px-1 py-0.5 text-red-600 hover:-translate-x-1 transition-transform duration-300 pointer-events-auto" href="https://www.holbertonschool.fr/" target="_blank" rel="noopener noreferrer">Holberton School</a>/ Dijon, France
+                    </p>
+
+                    <p class="text-sm text-zinc-500 leading-6">
+                        Après un parcours professionnel atypique, j’ai intégré la <a class="pointer-events-auto" href="https://www.holbertonschool.fr/" target="_blank" rel="noopener noreferrer">Holberton School</a> de Toulouse où j’ai suivi une formation intensive, puis effectué une alternance en tant que Software Engineer.
+                        Avant même la fin de mon apprentissage, une opportunité en CDI m’a été proposée, me permettant de poursuivre dans ce rôle sur le <a class="pointer-events-auto" href="https://www.holbertonschool.fr/campus/dijon" target="_blank" rel="noopener noreferrer">campus de Dijon</a>.
+                        Ce parcours m’a permis de construire de solides bases techniques, tout en développant mes capacités d’adaptation, de résolution de problèmes et d’accompagnement.
+                        Aujourd’hui je poursuis mon évolution en contribuant à des projets concrets tout en aidant d’autres personnes à progresser.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <!-- Projects section -->
@@ -80,7 +112,7 @@
         </section>
 
         <div class="fixed inset-0 max-w-7xl mx-auto pointer-events-none z-50">
-            <button class="absolute right-0 top-0 sm:top-auto sm:bottom-0 p-6 sm:p-12 pointer-events-auto cursor-pointer" onclick="toggleTheme()">
+            <button class="absolute right-0 top-0 sm:top-auto sm:bottom-0 p-6 sm:p-12 pointer-events-auto cursor-pointer" onclick="toggleTheme()" aria-label="Theme toggler">
                 <div class="relative w-4 h-4">
                     <!-- Sun -->
                     <svg class="absolute inset-0 w-full rotate-90 scale-0 opacity-0 dark:rotate-0 dark:scale-100 dark:opacity-100 transform transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
