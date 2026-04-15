@@ -38,7 +38,15 @@
 
         @layer components {
             .custom-tooltip::before {
-                @apply text-xs normal-case;
+                @apply text-xs normal-case tracking-normal;
+            }
+
+            .dark .custom-tooltip::before {
+                @apply text-zinc-950 bg-zinc-50;
+            }
+
+            html.dark .custom-tooltip {
+                --tt-bg: #fafafa;
             }
         }
     </style>
@@ -65,7 +73,7 @@
 
     <main class="max-w-7xl mx-auto">
         <!-- Hero section -->
-        <section id="hero-section" class="min-h-screen flex flex-col justify-center items-center border-b border-zinc-500">
+        <section id="hero-section" class="min-h-screen pt-12 flex flex-col justify-center items-center">
             <div class="w-full flex flex-col justify-center items-center gap-12">
                 <h2 class="text-[12vw] font-extrabold uppercase tracking-tighter leading-[0.8]">
                     Software
@@ -82,13 +90,21 @@
                 </h2>
 
                 <div class="px-6 sm:px-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <p class="text-sm uppercase whitespace-nowrap">
-                        <a class="inline-block px-1 py-0.5 text-red-600 hover:-translate-x-1 transition-transform duration-300 pointer-events-auto" href="https://www.holbertonschool.fr/" target="_blank" rel="noopener noreferrer">Holberton School</a>/ Dijon, France
-                    </p>
+                    <div class="flex flex-col justify-start items-start gap-2 text-sm uppercase whitespace-nowrap">
+                        <div>
+                            <a class="inline-block px-1 py-0.5 text-red-600 hover:-translate-x-1 transition-transform duration-300 pointer-events-auto" href="https://www.holbertonschool.fr/" target="_blank" rel="noopener noreferrer">Holberton School</a>/ Dijon, France
+                        </div>
+
+                        <div class="pointer-events-auto tooltip tooltip-bottom custom-tooltip" data-tip="Statistiques GitHub">
+                            <a href="https://github.com/fchavonet" target="_blank" rel="noopener noreferrer">
+                                <img class="w-125 p-2 bg-zinc-50" src="https://ghchart.rshah.org/dc2626/fchavonet" alt="GitHub Statistics">
+                            </a>
+                        </div>
+                    </div>
 
                     <p class="text-sm text-zinc-500 leading-6">
-                        Après un parcours professionnel atypique, j’ai intégré la <a class="pointer-events-auto" href="https://www.holbertonschool.fr/" target="_blank" rel="noopener noreferrer">Holberton School</a> de Toulouse où j’ai suivi une formation intensive, puis effectué une alternance en tant que Software Engineer.
-                        Avant même la fin de mon apprentissage, une opportunité en CDI m’a été proposée, me permettant de poursuivre dans ce rôle sur le <a class="pointer-events-auto" href="https://www.holbertonschool.fr/campus/dijon" target="_blank" rel="noopener noreferrer">campus de Dijon</a>.
+                        Après un parcours professionnel atypique, j’ai intégré la Holberton School de Toulouse où j’ai suivi une formation intensive, puis effectué une alternance en tant que Software Engineer.
+                        Avant même la fin de mon apprentissage, une opportunité en CDI m’a été proposée, me permettant de poursuivre dans ce rôle sur le campus de Dijon.
                         Ce parcours m’a permis de construire de solides bases techniques, tout en développant mes capacités d’adaptation, de résolution de problèmes et d’accompagnement.
                         Aujourd’hui je poursuis mon évolution en contribuant à des projets concrets tout en aidant d’autres personnes à progresser.
                     </p>
@@ -97,17 +113,17 @@
         </section>
 
         <!-- Projects section -->
-        <section id="projects-section" class="h-screen">
+        <section id="projects-section" class="h-screen mx-6 sm:mx-12 border-t border-zinc-500">
             <h2>Projets</h2>
         </section>
 
         <!-- Skills section -->
-        <section id="skills-section" class="h-screen">
+        <section id="skills-section" class="h-screen mx-6 sm:mx-12 border-t border-zinc-500">
             <h2>Compétences</h2>
         </section>
 
         <!-- Contact section -->
-        <section id="contact-section" class="h-screen">
+        <section id="contact-section" class="h-screen mx-6 sm:mx-12 border-t border-zinc-500">
             <h2>Contact</h2>
         </section>
 
