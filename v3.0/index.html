@@ -80,7 +80,7 @@
                     <br>
                     <span class="ps-[1vw]">Engineer</span>
 
-                    <span class="px-[0.25vw] text-[2vw] text-rotate font-light tracking-normal leading-none align-baseline text-zinc-50 bg-red-600">
+                    <span class="px-[0.24vw] text-[2vw] text-rotate font-light tracking-normal leading-none align-baseline text-zinc-50 bg-red-600">
                         <span>
                             <span class="w-full text-center">Designer</span>
                             <span class="w-full text-center">Developer</span>
@@ -97,7 +97,7 @@
 
                         <div class="pointer-events-auto tooltip tooltip-bottom custom-tooltip" data-tip="Statistiques GitHub">
                             <a href="https://github.com/fchavonet" target="_blank" rel="noopener noreferrer">
-                                <img class="w-125 p-2 bg-zinc-50" src="https://ghchart.rshah.org/dc2626/fchavonet" alt="GitHub Statistics">
+                                <img class="w-125 p-2 bg-zinc-50" src="https://ghchart.rshah.org/dc2626/fchavonet" alt="Statistiques GitHub">
                             </a>
                         </div>
                     </div>
@@ -113,22 +113,247 @@
         </section>
 
         <!-- Projects section -->
-        <section id="projects-section" class="h-screen mx-6 sm:mx-12 border-t border-zinc-500">
-            <h2>Projets</h2>
+        <section id="projects-section" class="mx-6 sm:mx-12 py-28 border-t border-zinc-500">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-12">
+                <div class="sm:col-span-3">
+                    <h2 class="flex flex-row justify-start items-center gap-2 text-xs uppercase tracking-[0.24em] text-zinc-500">
+                        <span class="block w-3 h-3 bg-red-600"></span>
+                        Projets
+                    </h2>
+                </div>
+
+                <div class="sm:col-span-9 space-y-12 pointer-events-auto">
+                    <article class="pb-6 border-b border-zinc-500">
+                        <a class="group block" href="https://fchavonet.github.io/full_stack-cowabunga/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:-translate-x-4 transition-transform duration-300">
+                                    Cowabunga
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    REACT / NODE.JS / SUPABASE
+                                </p>
+                            </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                Cowabunga est une application web légère destinée au catalogage des cartes issues du jeu de cartes à collectionner Tortues Ninja de la marque UniVersus.
+                                L'idée m'est venue après un voyage à Londres, où un ami et moi avons découvert une nouvelle collection de cartes TMNT et avons commencé à acheter des paquets.
+                            </p>
+                        </a>
+
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/full_stack-cowabunga" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet Cowabunga">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://fchavonet.github.io/full_stack-db_visual_adventure_cards_api/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:-translate-x-4 transition-transform duration-300">
+                                    DBVA Cards API
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    NODE.JS / JAVASCRIPT
+                                </p>
+                            </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                L'API Dragon Ball Visual Adventure Cards fournit des données structurées sur les cartes à collectionner publiées par Bandai dans les années 1990.
+                                Il s'agit d'une API open source, gratuite, conçue pour les développeurs, les collectionneurs et les passionnés qui souhaitent accéder facilement aux métadonnées des cartes.
+                            </p>
+                        </a>
+
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/full_stack-db_visual_adventure_cards_api" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet DBVA Cards API">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://github.com/fchavonet/full_stack-flask_shop_template" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:-translate-x-4 transition-transform duration-300">
+                                    Flask Shop Template
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    PYTHON / FLASK / BOOTSTRAP
+                                </p>
+                            </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                Flask Shop est un template de site de commerce électronique entièrement personnalisable, développé en Python à l'aide de Flask pour le backend et Bootstrap pour la mise en page et le style.
+                                Un modèle basé sur un shop en ligne de montres G-Shock est téléchargeable sur le GitHub du projet.
+                            </p>
+                        </a>
+
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/full_stack-flask_shop_template" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet Flask Shop Template">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://fchavonet.github.io/full_stack-gpt_stats_landing_page/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:-translate-x-4 transition-transform duration-300">
+                                    GPT Stats
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    HTML / CSS / JAVASCRIPT
+                                </p>
+                            </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                GPT Stats est une extension Chrome qui permet de suivre facilement votre utilisation de ChatGPT. Elle mesure automatiquement le temps que vous passez sur l'application, compte vos requêtes et affiche des statistiques d'utilisation utiles, le tout dans une interface contextuelle épurée et minimaliste.
+                            </p>
+                        </a>
+
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/chrome_extension-gpt_stats" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet GPT Stats">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://github.com/fchavonet/python-gshock_database" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:-translate-x-4 transition-transform duration-300">
+                                    G-Shock Database
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    PYTHON / CUSTOMTKINTER
+                                </p>
+                            </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                G-Shock Database est une application conçue pour explorer l'univers des montres Casio G-Shock.
+                                Le développement a débuté par la création d'un robot d'extraction de données qui récupère des informations détaillées sur les modèles.
+                                Les données collectées sont ensuite présentées via une interface graphique.
+                            </p>
+                        </a>
+
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/python-gshock_database" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet G-Shock Database">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://www.holbertonsurvivors.com/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:-translate-x-4 transition-transform duration-300">
+                                    Holberton Survivors
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    C# / UNITY
+                                </p>
+                            </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                Holberton Survivors est un jeu d'action inspiré du célèbre titre Vampire Survivors. Développé par Yoann Rivet et moi-même, ce projet est notre travail de fin de première année à la Holberton School. N'ayant aucune expérience préalable sous Unity et en C#, nous sommes partis de zéro, consacrant un mois à la préparation et un autre au codage intensif, tout en apprenant ces technologies au fur et à mesure.
+                            </p>
+                        </a>
+
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/unity-2d-holberton_survivors" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet Holberton Survivors">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://www.meninbricks.fr/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:-translate-x-4 transition-transform duration-300">
+                                    Men in Bricks
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    HTML / CSS / JAVASCRIPT
+                                </p>
+                            </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                Page d'accueil officielle de Men in Bricks, un podcast français destiné aux passionnés de LEGO®.
+                                Il s'agit d'un site web statique et léger, conçu pour être rapide, réactif et visuellement attrayant.
+                            </p>
+                        </a>
+
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/full_stack-men_in_bricks_landing_page" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet Men in Bricks">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://fchavonet.github.io/full_stack-othello_game/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:-translate-x-4 transition-transform duration-300">
+                                    Othello Game
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    HTML / CSS / JAVASCRIPT
+                                </p>
+                            </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                Othello Game est une adaptation pour navigateur du jeu de société classique Othello (également connu sous le nom de Reversi).
+                                Les joueurs placent à tour de rôle des disques noirs ou blancs sur le plateau, pour retourner les disques de l'adversaire en les encerclant.
+                                La partie se poursuit jusqu'à ce qu'aucun des deux joueurs ne puisse plus effectuer de coup valide, et le joueur ayant le plus de disques sur le plateau emporte la partie.
+                            </p>
+                        </a>
+
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/full_stack-othello_game" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet Othello Game">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
 
         <!-- Skills section -->
-        <section id="skills-section" class="h-screen mx-6 sm:mx-12 border-t border-zinc-500">
+        <section id="skills-section" class="min-h-screen mx-6 sm:mx-12 border-t border-zinc-500">
             <h2>Compétences</h2>
         </section>
 
         <!-- Contact section -->
-        <section id="contact-section" class="h-screen mx-6 sm:mx-12 border-t border-zinc-500">
+        <section id="contact-section" class="min-h-screen mx-6 sm:mx-12 border-t border-zinc-500">
             <h2>Contact</h2>
         </section>
 
         <div class="fixed inset-0 max-w-7xl mx-auto pointer-events-none z-50">
-            <button class="absolute right-0 top-0 sm:top-auto sm:bottom-0 p-6 sm:p-12 pointer-events-auto cursor-pointer" onclick="toggleTheme()" aria-label="Theme toggler">
+            <button class="absolute right-0 top-0 sm:top-auto sm:bottom-0 p-6 sm:p-12 pointer-events-auto cursor-pointer" onclick="toggleTheme()" aria-label="Changer le thème">
                 <div class="relative w-4 h-4">
                     <!-- Sun -->
                     <svg class="absolute inset-0 w-full rotate-90 scale-0 opacity-0 dark:rotate-0 dark:scale-100 dark:opacity-100 transform transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
