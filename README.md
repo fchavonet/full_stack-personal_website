@@ -35,10 +35,10 @@ Together, these iterations showcase both technical progression and evolving desi
 
 | **FILE**    | **DESCRIPTION**                                              |
 | :---------: | ------------------------------------------------------------ |
-| `.github`   | GitHub configuration files (workflows, templates...).        |
 | `v1.0`      | First version of the website (Bootstrap, rapid prototyping). |
 | `v2.0`      | Second version with Tailwind CSS and improved layout/design. |
 | `v3.0`      |  Third version focused on minimalism and typography.         |
+| `.github`   | GitHub configuration files (workflows, templates...).        |
 | `README.md` | The README file you are currently reading 😉.                |
 
 > Each folder contains its own `README.md` file with a detailed explanation.
