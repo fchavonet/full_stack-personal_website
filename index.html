@@ -1,707 +1,470 @@
 <!DOCTYPE html>
-<html lang="fr" class="bg-zinc-950 bg-gradient-to-r from-zinc-950 via-gray-900 to-zinc-950 noise cursor-default scroll-smooth">
+<html lang="fr" class="antialiased bg-zinc-50 dark:bg-zinc-950 text-zinc-950 dark:text-zinc-50 pointer-events-none select-none scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fabien Chavonet - Développeur Full Stack</title>
-    <meta name="description" content="Développeur Full Stack, formé à la Holberton School, je mets ma capacité d’adaptation et ma créativité au service de solutions web modernes et porteuses de sens.">
+    <title>Fabien Chavonet - Software Engineer</title>
+    <meta name="description" content="Software Engineer, formé à la Holberton School, je mets ma capacité d’adaptation et ma créativité au service de solutions porteuses de sens.">
     <meta name="robots" content="index, follow">
+
+    <!-- Load saved theme -->
+    <script>
+        (() => {
+            const theme = localStorage.getItem("theme");
+
+            if (theme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        })();
+    </script>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://fchavonet.dev/">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./style.css">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
-    <!-- daisyUI -->
+    <!-- DaisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
 
-    <!-- AOS (Animate on scroll)-->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+        @layer components {
+            .custom-tooltip::before {
+                @apply text-xs normal-case tracking-normal;
+            }
 
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+            .dark .custom-tooltip::before {
+                @apply text-zinc-950 bg-zinc-50;
+            }
+
+            html.dark .custom-tooltip {
+                --tt-bg: #fafafa;
+            }
+        }
+    </style>
 
     <!-- Script -->
     <script src="./script.js" defer></script>
 </head>
 
-<body class="max-w-screen-lg mx-auto p-8 lg:p-0 flex flex-col lg:flex-row justify-center gap-4 lg:gap-16 text-zinc-100">
-    <!-- ASIDE -->
-    <aside class="lg:w-72 lg:h-screen lg:mb-0 lg:sticky lg:top-0 flex flex-col justify-center gap-4">
-        <!-- Profile section -->
-        <div id="profile-section" class="h-112 mt-22 p-4 relative border border-zinc-700 rounded-4xl bg-zinc-800/75">
-            <img class="w-52 absolute top-[-22%] left-1/2 transform -translate-x-1/2 drop-shadow-lg" src="./assets/images/profile_picture.webp" alt="Image de profile">
+<body>
+    <header class="fixed inset-0 max-w-7xl mx-auto p-6 sm:p-12 flex flex-row justify-between items-start pointer-events-none z-50">
+        <h1 class="flex flex-row justify-center items-center gap-2 text-xs font-medium tracking-[0.24em] uppercase pointer-events-auto tooltip tooltip-bottom custom-tooltip" data-tip="Hello world!">
+            <span class="block w-3 h-3 bg-red-600"></span>
+            <a href="#hero-section">Fabien Chavonet</a>
+        </h1>
 
-            <div class="h-full p-4 pt-26 flex flex-col justify-between items-center text-center border border-zinc-700 rounded-2xl">
-                <!-- Title-->
-                <h1>
-                    <span class="-ml-3 block font-mono text-xl uppercase tracking-[0.8em]">Fabie<span class="tracking-normal">n</span></span>
-                    <span class="block text-4xl font-black uppercase">Chavonet</span>
-                </h1>
-
-                <!-- Tagline -->
-                <div class="w-full flex flex-col justify-center items-center">
-                    <h2 class="text-lg font-normal text-blue-500">Software Engineer</h2>
-                    <p class=" text-sm font-extralight italic text-zinc-500">Curieux, créatif, passionné...</p>
-                </div>
-
-                <div class="w-full flex flex-col justify-center items-center gap-4">
-                    <!-- Social media links -->
-                    <ul class="w-full max-w-56 mx-auto flex flex-row justify-between items-center text-2xl">
-
-                        <!-- GitHub -->
-                        <li class="group w-12 h-12 p-2 flex justify-center items-center border border-zinc-700 rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 active:scale-98">
-                            <a href="https://github.com/fchavonet" aria-label="Voir mon profil GitHub" rel="noopener noreferrer" target="_blank">
-                                <i class="bi bi-github text-2xl"></i>
-                            </a>
-                        </li>
-
-                        <!-- Instagram -->
-                        <li class="w-12 h-12 p-2 flex justify-center items-center border border-zinc-700 rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 active:scale-98">
-                            <a href="https://www.instagram.com/pandolowitz/" aria-label="Voir mon profil Instagram" rel="noopener noreferrer" target="_blank">
-                                <i class="bi bi-instagram text-2xl"></i>
-                            </a>
-                        </li>
-
-                        <!-- LinkedIn -->
-                        <li class="w-12 h-12 p-2 flex justify-center items-center border border-zinc-700 rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 active:scale-98">
-                            <a href="https://www.linkedin.com/in/fchavonet/" aria-label="Voir mon profil LinkedIn" rel="noopener noreferrer" target="_blank">
-                                <i class="bi bi-linkedin text-2xl"></i>
-                            </a>
-                        </li>
-
-                        <!-- Medium -->
-                        <li class="w-12 h-12 p-2 flex justify-center items-center border border-zinc-700 rounded-lg cursor-pointer transition-all duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 active:scale-98">
-                            <a href="https://fchavonet.medium.com/" aria-label="Voir mon profil Medium" rel="noopener noreferrer" target="_blank">
-                                <i class="bi bi-medium text-2xl"></i>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <!-- Resume download link -->
-                    <a class="w-full max-w-56 p-2 flex justify-center items-center border border-blue-500 rounded-lg bg-blue-500 cursor-pointer transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 active:scale-98" href="./assets/files/cv-fabien_chavonet.pdf" aria-label="Télécharger mon C.V." download="CV - Fabien Chavonet.pdf" rel="noopener noreferrer" target="_blank">
-                        <i class="bi bi-file-earmark-person me-2"></i>Mon C.V.
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Navigation menu (desktop) -->
-        <nav class="navigation-menu px-8 py-4 hidden lg:block text-xl border border-zinc-700 rounded-4xl bg-zinc-800/75">
-            <ul class="flex flex-row justify-between">
-                <li class="group w-8 h-8 relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                    <a class="w-full h-full flex justify-center items-center" href="#presentation-section" aria-label="Voir ma présentation">
-                        <i class="bi bi-chat-dots"></i>
-                    </a>
-
-                    <span class="px-2 py-1 absolute bottom-full left-1/2 text-xs text-zinc-100 whitespace-nowrap rounded bg-blue-500 opacity-0 transform -translate-x-1/2 translate-y-2 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:-translate-y-1 before:content-[''] before:absolute before:top-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-t-4 before:border-r-4 before:border-l-4 before:border-transparent before:border-t-blue-500">
-                        Présentation
-                    </span>
-                </li>
-
-                <li class="group w-8 h-8 relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                    <a class="w-full h-full flex justify-center items-center" href="#projects-section" aria-label="Voir mes projets">
-                        <i class="bi bi-folder2"></i>
-                    </a>
-
-                    <span class="px-2 py-1 absolute bottom-full left-1/2 text-xs text-zinc-100 whitespace-nowrap rounded bg-blue-500 opacity-0 transform -translate-x-1/2 translate-y-2 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:-translate-y-1 before:content-[''] before:absolute before:top-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-t-4 before:border-r-4 before:border-l-4 before:border-transparent before:border-t-blue-500">
-                        Mes projets
-                    </span>
-                </li>
-
-                <li class="group w-8 h-8 relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                    <a class="w-full h-full flex justify-center items-center" href="#skills-section" aria-label="Voir mes compétences">
-                        <i class="bi bi-layers"></i>
-                    </a>
-
-                    <span class="px-2 py-1 absolute bottom-full left-1/2 text-xs text-zinc-100 whitespace-nowrap rounded bg-blue-500 opacity-0 transform -translate-x-1/2 translate-y-2 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:-translate-y-1 before:content-[''] before:absolute before:top-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-t-4 before:border-r-4 before:border-l-4 before:border-transparent before:border-t-blue-500">
-                        Mes compétences
-                    </span>
-                </li>
-
-                <li class="group w-8 h-8 relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                    <a class="w-full h-full flex justify-center items-center" href="#contact-section" aria-label="Voir comment me contacter">
-                        <i class="bi bi-envelope-heart"></i>
-                    </a>
-
-                    <span class="px-2 py-1 absolute bottom-full left-1/2 text-xs text-zinc-100 whitespace-nowrap rounded bg-blue-500 opacity-0 transform -translate-x-1/2 translate-y-2 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:-translate-y-1 before:content-[''] before:absolute before:top-full before:left-1/2 before:transform before:-translate-x-1/2 before:border-t-4 before:border-r-4 before:border-l-4 before:border-transparent before:border-t-blue-500">
-                        Me contacter
-                    </span>
-                </li>
+        <nav class="hidden sm:block pointer-events-auto cursor-pointer">
+            <ul class="flex flex-col justify-center items-end gap-1 text-xs font-light tracking-[0.24em] uppercase">
+                <li><a class="inline-block hover:text-red-600 hover:translate-x-1 transition-transform duration-300" href="#projects-section">Projets</a></li>
+                <li><a class="inline-block hover:text-red-600 hover:translate-x-1 transition-transform duration-300" href="#skills-section">Compétences</a></li>
+                <li><a class="inline-block hover:text-red-600 hover:translate-x-1 transition-transform duration-300" href="#contact-section">Contact</a></li>
             </ul>
         </nav>
-    </aside>
+    </header>
 
-    <!-- Responsive navigation menu (mobile) -->
-    <nav class="navigation-menu mb-4 px-8 py-4 sticky top-4 block lg:hidden text-xl border border-zinc-700 rounded-4xl bg-zinc-800/75 backdrop-blur z-40">
-        <ul class="flex flex-row justify-between">
-            <li class="group w-8 h-8 relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                <a class="w-full h-full flex justify-center items-center" href="#profile-section" aria-label="Voir mon profil">
-                    <i class="bi bi-person"></i>
-                </a>
-            </li>
+    <main class="max-w-7xl mx-auto">
+        <!-- Hero section -->
+        <section id="hero-section" class="min-h-screen pt-12 flex flex-col justify-center items-center">
+            <div class="w-full flex flex-col justify-center items-center gap-12">
+                <h2 class="text-[10vw] font-extrabold uppercase tracking-tighter leading-[0.8]">
+                    Software
+                    <br>
+                    <span class="ps-[0.85vw]">Engineer</span>
 
-            <li class="group w-8 h-8 relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                <a class="w-full h-full flex justify-center items-center" href="#presentation-section" aria-label="Voir ma présentation">
-                    <i class="bi bi-chat-dots"></i>
-                </a>
-            </li>
+                    <span class="px-[0.24vw] text-[2vw] text-rotate font-light tracking-normal leading-none align-baseline text-zinc-50 bg-red-600">
+                        <span>
+                            <span class="w-full text-center">Designer</span>
+                            <span class="w-full text-center">Developer</span>
+                            <span class="w-full text-center">Dreamer</span>
+                        </span>
+                    </span>
+                </h2>
 
-            <li class="group w-8 h-8 relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                <a class="w-full h-full flex justify-center items-center" href="#projects-section" aria-label="Voir mes projets">
-                    <i class="bi bi-folder2"></i>
-                </a>
-            </li>
+                <div class="px-6 sm:px-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="flex flex-col justify-start items-start gap-2 text-sm uppercase whitespace-nowrap">
+                        <div>
+                            <a class="inline-block ps-2 pe-1 py-0.5 text-red-600 hover:-translate-x-1 transition-transform duration-300 pointer-events-auto" href="https://www.holbertonschool.fr/" target="_blank" rel="noopener noreferrer">Holberton School</a>/ Dijon, France
+                        </div>
 
-            <li class="group w-8 h-8 relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                <a class="w-full h-full flex justify-center items-center" href="#skills-section" aria-label="Voir mes compétences">
-                    <i class="bi bi-layers"></i>
-                </a>
-            </li>
+                        <div class="pointer-events-auto tooltip tooltip-bottom custom-tooltip" data-tip="Statistiques GitHub">
+                            <a href="https://github.com/fchavonet" target="_blank" rel="noopener noreferrer">
+                                <img class="w-125 p-2 bg-zinc-50" src="https://ghchart.rshah.org/dc2626/fchavonet" alt="Statistiques GitHub">
 
-            <li class="group w-8 h-8 relative rounded-lg hover:text-blue-500 hover:bg-zinc-700">
-                <a class="w-full h-full flex justify-center items-center" href="#contact-section" aria-label="Voir comment me contacter">
-                    <i class="bi bi-envelope-heart"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
+                                <div class="ps-2 flex flex-row flex-wrap justify-start items-center gap-2 normal-case">
+                                    <div class="flex flex-row justify-start items-baseline gap-1">
+                                        <span id="repo-count" class="text-sm font-bold">...</span>
+                                        <span class="text-xs text-zinc-500">Dépôts</span>
+                                    </div>
 
-    <!-- MAIN -->
-    <main class="lg:w-152 flex flex-col gap-4">
-        <!-- Presentation section -->
-        <section id="presentation-section" class="flex flex-col gap-4">
-            <h2 class="text-5xl font-semibold">Développeur <span class="text-blue-500">Full Stack</span></h2>
+                                    <div class="flex flex-row justify-start items-baseline gap-1">
+                                        <span id="followers-count" class="text-sm font-bold">...</span>
+                                        <span class="text-xs text-zinc-500">Abonnés</span>
+                                    </div>
 
-            <p class="text-lg font-extralight">
-                Après un parcours atypique et riche en expériences, je me consacre aujourd’hui au développement Full Stack.
-                Formé à la <a class="group relative font-normal text-blue-500" href="https://www.holbertonschool.fr/" rel="noopener noreferrer" target="_blank">Holberton School<span class="w-0 h-0.25 absolute -bottom-0.5 left-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span><span class="w-0 h-0.25 absolute -bottom-0.5 right-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span></a>, je mets ma capacité d’adaptation, ma créativité, et ma rigueur, au service de solutions web modernes et porteuses de sens.
-                <br>
-                Visitez mon profil <a class="group relative font-normal text-blue-500" href="https://www.linkedin.com/in/fchavonet/" rel="noopener noreferrer" target="_blank">LinkedIn<span class="w-0 h-0.25 absolute -bottom-0.5 left-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span><span class="w-0 h-0.25 absolute -bottom-0.5 right-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span></a> pour en apprendre plus sur mon parcours professionnel.
-            </p>
+                                    <div class="flex flex-row justify-start items-baseline gap-1">
+                                        <span id="stars-count" class="text-sm font-bold">...</span>
+                                        <span class="text-xs text-zinc-500">Étoiles</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 
-            <!--  GitHub statistics -->
-            <h3 class="mt-5 text-2xl font-semibold" data-aos="fade-in">Statistiques <span class="text-blue-500">GitHub</span></h3>
-
-            <div class="grid grid-cols-3" data-aos="fade-in">
-                <div class="flex flex-col">
-                    <span id="repo-count" class="text-5xl font-semibold">...</span>
-                    <span class="text-sm font-extralight lg:text-lg">Dépôts publics</span>
+                    <p class="text-sm leading-6 text-zinc-500">
+                        Après un parcours professionnel atypique, j’ai intégré la Holberton School de Toulouse où j’ai suivi une formation intensive, puis j’y ai effectué une alternance en tant que Software Engineer.
+                        Avant même la fin de mon apprentissage, une opportunité en CDI m’a été proposée me permettant de poursuivre dans ce rôle sur le campus de Dijon.
+                        Ce parcours m’a permis de construire de solides bases techniques, tout en développant mes capacités d’adaptation, de résolution de problèmes et d’accompagnement.
+                        Aujourd’hui je poursuis mon évolution en contribuant à des projets concrets tout en aidant d’autres personnes à progresser.
+                    </p>
                 </div>
-
-                <div class="flex flex-col">
-                    <span id="followers-count" class="text-5xl font-semibold">...</span>
-                    <span class="text-sm font-extralight lg:text-lg">Abonnés</span>
-                </div>
-
-                <div class="flex flex-col">
-                    <span id="stars-count" class="text-5xl font-semibold">...</span>
-                    <span class="text-sm font-extralight lg:text-lg">Étoiles reçues</span>
-                </div>
-            </div>
-
-            <div class="p-2 lg:p-4 flex justify-center items-center rounded-xl lg:rounded-2xl bg-zinc-100" data-aos="fade-in">
-                <img src="https://ghchart.rshah.org/2b7fff/fchavonet" alt="Github Chart">
-            </div>
-
-            <!-- Call to action -->
-            <div class="w-full flex flex-row justify-end items-center gap-4" data-aos="fade-in">
-                <a class="group inline-flex items-center text-xs transition duration-300 ease-in-out" href="#contact-section" onclick="event.preventDefault(); document.getElementById('name').focus();">
-                    <i class="bi bi-arrow-down-left-square me-2 inline-block text-lg transform transition duration-300 ease-in-out group-hover:-translate-x-1 group-hover:translate-y-1 group-hover:text-blue-500"></i>
-                    ME CONTACTER
-                </a>
             </div>
         </section>
 
         <!-- Projects section -->
-        <section id="projects-section" class="mb-0 lg:mb-8 flex flex-col gap-4">
-            <h2 class="text-4xl font-semibold" data-aos="fade-in">Mes projets</h2>
-
-            <!-- Main projects -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Cowabunga -->
-                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75" data-aos="fade-in">
-                    <div class="group flex flex-1 flex-col cursor-pointer">
-                        <!-- Project link -->
-                        <a class="flex flex-1 flex-col" href="https://fchavonet.github.io/full_stack-cowabunga/" rel="noopener noreferrer" target="_blank">
-                            <!-- Screenshots -->
-                            <div class="mb-2 overflow-hidden border-b border-zinc-700">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/projects/cowabunga.webp" loading="lazy" alt="Capture d'écran du projet GPT Stats">
-                            </div>
-
-                            <div class="mb-4 px-4 flex flex-1 flex-col justify-center">
-                                <!-- Project's title -->
-                                <h3 class="text-lg font-medium transition-colors duration-300 ease-in-out group-hover:text-blue-500">Cowabunga</h3>
-
-                                <!-- Teck Stack -->
-                                <div>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">REACT</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">TailwindCSS</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">Supabase</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- GitHub repository link -->
-                    <div class="px-3 pb-3">
-                        <a class="group w-full py-2 flex justify-center items-center text-sm rounded-full bg-zinc-950" href="https://github.com/fchavonet/full_stack-cowabunga" data-repo="full_stack-cowabunga" rel="noopener noreferrer" target="_blank">
-                            <i class="bi bi-github me-2 text-xl"></i>
-                            GitHub du projet
-                            <span class="stars-placeholder ms-3">...</span>
-                            <span class="ms-1 text-yellow-300 transition-transform duration-1000 ease-in-out group-hover:rotate-[360deg]">★</span>
-                        </a>
-                    </div>
+        <section id="projects-section" class="mx-6 sm:mx-12 py-28 border-t border-zinc-500">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-12">
+                <div class="sm:col-span-3">
+                    <h2 class="flex flex-row justify-start items-center gap-2 text-xs uppercase tracking-[0.24em] text-zinc-500">
+                        <span class="block w-3 h-3 bg-red-600"></span>
+                        Projets
+                    </h2>
                 </div>
 
-                <!-- Flask Shop Template -->
-                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75" data-aos="fade-in">
-                    <div class="group flex flex-1 flex-col cursor-pointer">
-                        <!-- Project link -->
-                        <a class="flex flex-1 flex-col" href="https://github.com/fchavonet/full_stack-flask_shop_template" rel="noopener noreferrer" target="_blank">
-                            <!-- Screenshots -->
-                            <div class="mb-2 overflow-hidden border-b border-zinc-700">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/projects/flask_shop_template.webp" loading="lazy" alt="Capture d'écran du projet Flask Shop Template">
+                <div class="sm:col-span-9 space-y-12 pointer-events-auto">
+                    <article class="pb-6 border-b border-zinc-500">
+                        <a class="group block" href="https://fchavonet.github.io/full_stack-cowabunga/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:text-red-600 group-hover:-translate-x-4 transition-all duration-300">
+                                    Cowabunga
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    REACT / NODE.JS / SUPABASE
+                                </p>
                             </div>
 
-                            <div class="mb-4 px-4 flex flex-1 flex-col justify-center">
-                                <!-- Project's title -->
-                                <h3 class="text-lg font-medium transition-colors duration-300 ease-in-out group-hover:text-blue-500">Flask Shop Template</h3>
-
-                                <!-- Teck Stack -->
-                                <div>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">Python</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">Flask</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">Bootstrap</span>
-                                </div>
-                            </div>
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                Cowabunga est une application web légère destinée au catalogage des cartes issues du jeu de cartes à collectionner Tortues Ninja de la marque UniVersus.
+                                L'idée m'est venue après un voyage à Londres, où un ami et moi avons découvert une nouvelle collection de cartes TMNT et avons commencé à acheter des boosters.
+                            </p>
                         </a>
-                    </div>
 
-                    <!-- GitHub repository link -->
-                    <div class="px-3 pb-3">
-                        <a class="group w-full py-2 flex justify-center items-center text-sm rounded-full bg-zinc-950" href="https://github.com/fchavonet/full_stack-flask_shop_template" data-repo="full_stack-flask_shop_template" rel="noopener noreferrer" target="_blank">
-                            <i class="bi bi-github me-2 text-xl"></i>
-                            GitHub du projet
-                            <span class="stars-placeholder ms-3">...</span>
-                            <span class="ms-1 text-yellow-300 transition-transform duration-1000 ease-in-out group-hover:rotate-[360deg]">★</span>
-                        </a>
-                    </div>
-                </div>
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/full_stack-cowabunga" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet Cowabunga">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
 
-                <!-- GPT Stats -->
-                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75" data-aos="fade-in">
-                    <div class="group flex flex-1 flex-col cursor-pointer">
-                        <!-- Project link -->
-                        <a class="flex flex-1 flex-col" href="https://fchavonet.github.io/full_stack-gpt_stats_landing_page/" rel="noopener noreferrer" target="_blank">
-                            <!-- Screenshots -->
-                            <div class="mb-2 overflow-hidden border-b border-zinc-700">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/projects/gpt_stats.webp" loading="lazy" alt="Capture d'écran du projet GPT Stats">
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://fchavonet.github.io/full_stack-db_visual_adventure_cards_api/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:text-red-600 group-hover:-translate-x-4 transition-all duration-300">
+                                    DBVA Cards API
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    NODE.JS / JAVASCRIPT
+                                </p>
                             </div>
 
-                            <div class="mb-4 px-4 flex flex-1 flex-col justify-center">
-                                <!-- Project's title -->
-                                <h3 class="text-lg font-medium transition-colors duration-300 ease-in-out group-hover:text-blue-500">GPT Stats</h3>
-
-                                <!-- Teck Stack -->
-                                <div>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">HTML</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">CSS</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">JavaScript</span>
-                                </div>
-                            </div>
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                L'API Dragon Ball Visual Adventure Cards fournit des données structurées sur les cartes à collectionner publiées par Bandai dans les années 1990.
+                                Il s'agit d'une API open source, gratuite, conçue pour les développeurs, les collectionneurs et les passionnés qui souhaitent accéder facilement aux métadonnées des cartes.
+                            </p>
                         </a>
-                    </div>
 
-                    <!-- GitHub repository link -->
-                    <div class="px-3 pb-3">
-                        <a class="group w-full py-2 flex justify-center items-center text-sm rounded-full bg-zinc-950" href="https://github.com/fchavonet/chrome_extension-gpt_stats" data-repo="chrome_extension-gpt_stats" rel="noopener noreferrer" target="_blank">
-                            <i class="bi bi-github me-2 text-xl"></i>
-                            GitHub du projet
-                            <span class="stars-placeholder ms-3">...</span>
-                            <span class="ms-1 text-yellow-300 transition-transform duration-1000 ease-in-out group-hover:rotate-[360deg]">★</span>
-                        </a>
-                    </div>
-                </div>
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/full_stack-db_visual_adventure_cards_api" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet DBVA Cards API">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
 
-                <!-- Holberton Survivors -->
-                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75" data-aos="fade-in">
-                    <div class="group flex flex-1 flex-col cursor-pointer">
-                        <!-- Project link -->
-                        <a class="flex flex-1 flex-col" href="https://holbertonsurvivors.com/" rel="noopener noreferrer" target="_blank">
-                            <!-- Screenshots -->
-                            <div class="mb-2 overflow-hidden border-b border-zinc-700">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/projects/holberton_survivors.webp" loading="lazy" alt="Capture d'écran du projet Holberton Survivors">
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://github.com/fchavonet/full_stack-flask_shop_template" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:text-red-600 group-hover:-translate-x-4 transition-all duration-300">
+                                    Flask Shop Template
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    PYTHON / FLASK / BOOTSTRAP
+                                </p>
                             </div>
 
-                            <div class="mb-4 px-4 flex flex-1 flex-col justify-center">
-                                <!-- Project's title -->
-                                <h3 class="text-lg font-medium transition-colors duration-300 ease-in-out group-hover:text-blue-500">Holberton Survivors</h3>
-
-                                <!-- Teck Stack -->
-                                <div>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">Unity</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">HTML</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">CSS</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">JavaScript</span>
-                                </div>
-                            </div>
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                Flask Shop est un template de site e-commerce entièrement personnalisable, développé avec Python et Flask pour le backend, et Bootstrap pour la mise en page et le style.
+                                Un exemple basé sur une boutique en ligne de montres G-Shock est disponible sur le GitHub du projet.
+                            </p>
                         </a>
-                    </div>
 
-                    <!-- GitHub repository link -->
-                    <div class="px-3 pb-3">
-                        <a class="group w-full py-2 flex justify-center items-center text-sm rounded-full bg-zinc-950" href="https://github.com/fchavonet/unity-2d-holberton_survivors" data-repo="unity-2d-holberton_survivors" rel="noopener noreferrer" target="_blank">
-                            <i class="bi bi-github me-2 text-xl"></i>
-                            GitHub du projet
-                            <span class="stars-placeholder ms-3">...</span>
-                            <span class="ms-1 text-yellow-300 transition-transform duration-1000 ease-in-out group-hover:rotate-[360deg]">★</span>
-                        </a>
-                    </div>
-                </div>
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/full_stack-flask_shop_template" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet Flask Shop Template">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
 
-                <!-- iTunes Artwork Finder -->
-                <div class="lg:aspect-square flex flex-col justify-between overflow-hidden border border-zinc-700 rounded-4xl bg-zinc-800/75" data-aos="fade-in">
-                    <div class="group flex flex-1 flex-col cursor-pointer">
-                        <!-- Project link -->
-                        <a class="flex flex-1 flex-col" href="https://fchavonet.github.io/full_stack-itunes_artwork_finder/" rel="noopener noreferrer" target="_blank">
-                            <!-- Screenshots -->
-                            <div class="mb-2 overflow-hidden border-b border-zinc-700">
-                                <img class="w-full h-40 object-cover object-top transition-transform will-change-transform duration-300 ease-in-out group-hover:scale-105" src="./assets/images/screenshots/projects/itunes_artwork_finder.webp" loading="lazy" alt="Capture d'écran du projet Holberton Survivors">
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://fchavonet.github.io/full_stack-gpt_stats_landing_page/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:text-red-600 group-hover:-translate-x-4 transition-all duration-300">
+                                    GPT Stats
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    HTML / CSS / JAVASCRIPT
+                                </p>
                             </div>
 
-                            <div class="mb-4 px-4 flex flex-1 flex-col justify-center">
-                                <!-- Project's title -->
-                                <h3 class="text-lg font-medium transition-colors duration-300 ease-in-out group-hover:text-blue-500">iTunes Artwork Finder</h3>
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                GPT Stats est une extension Chrome qui permet de suivre facilement votre utilisation de ChatGPT. Elle mesure automatiquement le temps que vous passez sur l'application, compte vos requêtes et affiche des statistiques d'utilisation utiles, le tout dans une interface contextuelle épurée et minimaliste.
+                            </p>
+                        </a>
 
-                                <!-- Teck Stack -->
-                                <div>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">HTML</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">TailwindCSS</span>
-                                    <span class="px-2 py-1 text-xs font-thin text-zinc-100 border border-zinc-600 rounded-lg bg-zinc-700">JavaScript</span>
-                                </div>
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/chrome_extension-gpt_stats" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet GPT Stats">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://github.com/fchavonet/python-gshock_database" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:text-red-600 group-hover:-translate-x-4 transition-all duration-300">
+                                    G-Shock Database
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    PYTHON / CUSTOMTKINTER
+                                </p>
                             </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                G-Shock Database est une application conçue pour explorer l'univers des montres Casio G-Shock.
+                                Le développement a débuté par la création d'un robot d'extraction de données qui récupère des informations détaillées sur les modèles.
+                                Les données collectées sont ensuite présentées via une interface graphique.
+                            </p>
                         </a>
-                    </div>
 
-                    <!-- GitHub repository link -->
-                    <div class="px-3 pb-3">
-                        <a class="group w-full py-2 flex justify-center items-center text-sm rounded-full bg-zinc-950" href="https://github.com/fchavonet/full_stack-itunes_artwork_finder" data-repo="full_stack-itunes_artwork_finder" rel="noopener noreferrer" target="_blank">
-                            <i class="bi bi-github me-2 text-xl"></i>
-                            GitHub du projet
-                            <span class="stars-placeholder ms-3">...</span>
-                            <span class="ms-1 text-yellow-300 transition-transform duration-1000 ease-in-out group-hover:rotate-[360deg]">★</span>
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/python-gshock_database" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet G-Shock Database">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://www.holbertonsurvivors.com/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:text-red-600 group-hover:-translate-x-4 transition-all duration-300">
+                                    Holberton Survivors
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    C# / UNITY
+                                </p>
+                            </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                Holberton Survivors est un jeu d'action inspiré du célèbre titre Vampire Survivors. Développé par Yoann Rivet et moi-même, ce projet est notre travail de fin de première année à la Holberton School. N'ayant aucune expérience préalable avec Unity et en C#, nous sommes partis de zéro, consacrant un mois à la préparation et un autre au codage intensif, tout en apprenant ces technologies au fur et à mesure.
+                            </p>
                         </a>
-                    </div>
-                </div>
-            </div>
 
-            <!--  Creative experiments -->
-            <h3 class="mt-5 text-2xl font-semibold" data-aos="fade-in">Expérimentations <span class="text-blue-500">créatives</span></h3>
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/unity-2d-holberton_survivors" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet Holberton Survivors">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
 
-            <p class="-mb-2 block lg:hidden flex flex-row justify-center items-center text-xs">
-                Faites défiler pour voir les projets <i class="bi bi-arrow-right-square ms-2 mt-0.5"></i>
-            </p>
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://www.meninbricks.fr/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:text-red-600 group-hover:-translate-x-4 transition-all duration-300">
+                                    Men in Bricks
+                                </h3>
 
-            <div class="grid lg:grid-cols-[2fr_3fr] gap-4">
-                <!-- Experiment list -->
-                <ul id="project-list" class="overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory flex flex-row lg:flex-col gap-4 [-webkit-overflow-scrolling:touch]">
-                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
-                        data-screenshot-src="./assets/images/screenshots/experiments/audio_visualizer.webp"
-                        data-project-url="https://fchavonet.github.io/creative_coding-audio_visualizer/"
-                        data-github-url="https://github.com/fchavonet/creative_coding-audio_visualizer/"
-                        data-aos="fade-in">
-                        Audio Visualizer
-                    </li>
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    HTML / CSS / JAVASCRIPT
+                                </p>
+                            </div>
 
-                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
-                        data-screenshot-src="./assets/images/screenshots/experiments/audrey_s_mail_generator.webp"
-                        data-project-url="https://fchavonet.github.io/creative_coding-audrey_s_mail_generator/"
-                        data-github-url="https://github.com/fchavonet/creative_coding-audrey_s_mail_generator/"
-                        data-aos="fade-in">
-                        Audrey's Mail Generator
-                    </li>
-
-                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
-                        data-screenshot-src="./assets/images/screenshots/experiments/dbscg_3d_viewer.webp"
-                        data-project-url="https://fchavonet.github.io/creative_coding-dbscg_3d_viewer/"
-                        data-github-url="https://github.com/fchavonet/creative_coding-dbscg_3d_viewer/"
-                        data-aos="fade-in">
-                        DBSCG 3D Viewer
-                    </li>
-
-                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
-                        data-screenshot-src="./assets/images/screenshots/experiments/flappy_bird_clone.webp"
-                        data-project-url="https://fchavonet.github.io/creative_coding-flappy_bird_clone/"
-                        data-github-url="https://github.com/fchavonet/creative_coding-flappy_bird_clone/"
-                        data-aos="fade-in">
-                        Flappy Bird Clone
-                    </li>
-
-                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
-                        data-screenshot-src="./assets/images/screenshots/experiments/flip_book.webp"
-                        data-project-url="https://fchavonet.github.io/creative_coding-flip_book/"
-                        data-github-url="https://github.com/fchavonet/creative_coding-flip_book/"
-                        data-aos="fade-in">
-                        Flip Book
-                    </li>
-
-                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
-                        data-screenshot-src="./assets/images/screenshots/experiments/holberton_letter_cascade.webp"
-                        data-project-url="https://fchavonet.github.io/creative_coding-holberton_letter_cascade/"
-                        data-github-url="https://github.com/fchavonet/creative_coding-holberton_letter_cascade/"
-                        data-aos="fade-in">
-                        Holberton Letter Cascade
-                    </li>
-
-                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
-                        data-screenshot-src="./assets/images/screenshots/experiments/simple_reminder.webp"
-                        data-project-url="https://fchavonet.github.io/creative_coding-simple_reminder/"
-                        data-github-url="https://github.com/fchavonet/creative_coding-simple_reminder/"
-                        data-aos="fade-in">
-                        Simple Reminder
-                    </li>
-
-                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
-                        data-screenshot-src="./assets/images/screenshots/experiments/simple_memory_game.webp"
-                        data-project-url="https://fchavonet.github.io/live_coding-simple_memory_game/"
-                        data-github-url="https://github.com/fchavonet/live_coding-simple_memory_game/"
-                        data-aos="fade-in">
-                        Simple Memory Game
-                    </li>
-
-                    <li class="w-full lg:w-auto px-4 py-2 snap-center flex flex-shrink-0 justify-center items-center whitespace-nowrap border border-zinc-700 rounded-xl bg-zinc-800/75 cursor-pointer"
-                        data-screenshot-src="./assets/images/screenshots/experiments/xmb_wave_background.webp"
-                        data-project-url="https://fchavonet.github.io/creative_coding-xmb_wave_background/"
-                        data-github-url="https://github.com/fchavonet/creative_codingtack-xmb_wave_background"
-                        data-aos="fade-in">
-                        XMB Wave Background
-                    </li>
-                </ul>
-
-                <!-- Experiment screenshot and link -->
-                <div id="experiment-sticky" class="block lg:sticky self-start" data-aos="fade-in">
-                    <div class="group cursor-pointer">
-                        <a id="project-link" href="#" rel="noopener noreferrer" target="_blank">
-                            <img id="experiment-screenshot" class="w-full rounded-xl bg-zinc-100" src="./assets/images/" alt="">
-
-                            <span class="w-full mt-2 flex justify-end items-center">
-                                <i class="bi bi-arrow-up-square me-2 inline-block text-lg transform transition duration-300 ease-in-out group-hover:-translate-y-1 group-hover:text-blue-500"></i>TESTER L'EXPÉRIMENTATION
-                            </span>
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                Page d'accueil officielle de Men in Bricks, un podcast français destiné aux passionnés de LEGO®.
+                                Il s'agit d'un site web statique et léger, conçu pour être rapide, réactif et visuellement attrayant.
+                            </p>
                         </a>
-                    </div>
 
-                    <!-- Experiment GitHub link -->
-                    <div class="flex flex-row justify-end items-center">
-                        <a id="github-link" class="group relative text-blue-500" href="#" rel="noopener noreferrer" target="_blank">GitHub du projet<span class="w-0 h-0.25 absolute -bottom-0.5 left-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span><span class="w-0 h-0.25 absolute -bottom-0.5 right-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span></a>
-                    </div>
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/full_stack-men_in_bricks_landing_page" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet Men in Bricks">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="border-b border-zinc-500 pb-6">
+                        <a class="group block" href="https://fchavonet.github.io/full_stack-othello_game/" target="_blank" rel="noopener noreferrer">
+                            <div class="flex flex-col sm:flex-row justify-end items-start sm:justify-between sm:items-end">
+                                <h3 class="text-xl sm:text-5xl font-bold uppercase tracking-[0.04em] group-hover:text-red-600 group-hover:-translate-x-4 transition-all duration-300">
+                                    Othello Game
+                                </h3>
+
+                                <p class="w-full sm:w-auto text-xs uppercase tracking-[0.24em] text-end whitespace-nowrap">
+                                    HTML / CSS / JAVASCRIPT
+                                </p>
+                            </div>
+
+                            <p class="mt-4 text-sm text-zinc-500 leading-6">
+                                Othello Game est une adaptation pour navigateur du jeu de société classique Othello (également connu sous le nom de Reversi).
+                                Les joueurs placent à tour de rôle des disques noirs ou blancs sur le plateau pour retourner ceux de l'adversaire en les encerclant.
+                                La partie se poursuit jusqu'à ce qu'aucun des deux joueurs ne puisse plus effectuer de coup valide, et le joueur ayant le plus de disques sur le plateau emporte la partie.
+                            </p>
+                        </a>
+
+                        <div class="w-full flex flex-row justify-end items-center">
+                            <a class="w-6 h-6 text-red-600 tooltip tooltip-left custom-tooltip" data-tip="GitHub du projet" href="https://github.com/fchavonet/full_stack-othello_game" target="_blank" rel="noopener noreferrer" aria-label="GitHub du projet Othello Game">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- Skills section -->
-        <section id="skills-section" class="mb-6 flex flex-col gap-4">
-            <h2 class="text-4xl font-semibold" data-aos="fade-in">Mes compétences</h2>
-
-            <p class="text-lg font-extralight" data-aos="fade-in">
-                J'ai ré-appris à apprendre, c’est le point que je retiens le plus de la <a class="group relative font-normal text-blue-500" href="https://www.holbertonschool.fr/methodologie" rel="noopener noreferrer" target="_blank">méthodologie<span class="w-0 h-0.25 absolute -bottom-0.5 left-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span><span class="w-0 h-0.25 absolute -bottom-0.5 right-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span></a> utilisée lors de ma formation.
-            </p>
-
-            <p class="text-lg font-extralight" data-aos="fade-in">
-                Trois années intensives, rythmées par un stage, puis deux ans d’alternance, m’ont permis d’acquérir une solide expérience et des bases techniques robustes.
-            </p>
-
-            <p class="text-lg font-extralight" data-aos="fade-in">
-                Mon parcours professionnel antérieur m’a également permis de développer de précieuses compétences interpersonnelles : autonomie, écoute, esprit d’équipe, exigence de qualité et sens du détail.
-            </p>
-
-            <!-- Competenses carousel -->
-            <div id="carousel-container" class="overflow-hidden" data-aos="fade-in">
-                <div id="slide-track" class="flex flex-row items-center space-x-4 transition-transform duration-700 ease-in-out">
-                    <!-- Clone of the last slide (for seamless infinite loop)  -->
-                    <div class="w-full px-4 py-2 flex-shrink-0 border border-zinc-700 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-semibold">Gestion de versions</h3>
-                        <p class="mb-1 text-xs font-thin">Organisation du code via Git & GitHub pour un suivi précis et une collaboration fluide.</p>
-                    </div>
-
-                    <!-- First slide -->
-                    <div class="w-full px-4 py-2 flex-shrink-0 border border-zinc-700 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-medium">Algorithmie</h3>
-                        <p class="mb-1 text-xs font-thin">Développement de la pensée algorithmique pour résoudre efficacement des problèmes.</p>
-                    </div>
-
-                    <div class="w-full px-4 py-2 flex-shrink-0 border border-zinc-700 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-medium">HTML, CSS & Javascript</h3>
-                        <p class="mb-1 text-xs font-thin">Création de mises en page responsives et conformes aux standards.</p>
-                    </div>
-
-                    <div class="w-full px-4 py-2 flex-shrink-0 border border-zinc-700 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-medium">Back-End & API</h3>
-                        <p class="mb-1 text-xs font-thin">Conception et développement d'API robustes, sécurisées et performantes.</p>
-                    </div>
-
-                    <div class="w-full px-4 py-2 flex-shrink-0 border border-zinc-700 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-medium">Bases de données</h3>
-                        <p class="mb-1 text-xs font-thin">Conception et gestion de bases de données relationnelles et NoSQL.</p>
-                    </div>
-
-                    <div class="w-full px-4 py-2 flex-shrink-0 border border-zinc-700 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-medium">Frameworks modernes</h3>
-                        <p class="mb-1 text-xs font-thin">Accélèrent le développement, assurent la qualité et facilitent la maintenance.</p>
-                    </div>
-
-                    <!-- Last slide -->
-                    <div class="w-full px-4 py-2 flex-shrink-0 border border-zinc-700 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-medium">Gestion de versions</h3>
-                        <p class="mb-1 text-xs font-thin">Organisation du code via Git & GitHub pour un suivi précis et une collaboration fluide.</p>
-                    </div>
-
-                    <!-- Clone of the first slide (for seamless infinite loop) -->
-                    <div class="w-full px-4 py-2 flex-shrink-0 border border-zinc-700 rounded-xl bg-zinc-800/75">
-                        <h3 class="text-lg font-semibold">Algorithmie</h3>
-                        <p class="mb-1 text-xs font-thin">Développement de la pensée algorithmique pour résoudre efficacement des problèmes.</p>
-                    </div>
+        <section id="skills-section" class="mx-6 sm:mx-12 py-28 border-t border-zinc-500">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-12">
+                <div class="sm:col-span-3">
+                    <h2 class="flex flex-row justify-start items-center gap-2 text-xs uppercase tracking-[0.24em] text-zinc-500">
+                        <span class="block w-3 h-3 bg-red-600"></span>
+                        Compétences
+                    </h2>
                 </div>
 
-                <!-- Carousel navigation dots -->
-                <div id="dots" class="mt-4 ms-3 flex justify-start gap-2"></div>
-
-                <!-- Carousel controls -->
-                <div class="w-full flex justify-end items-center gap-2">
-                    <!-- Previous button-->
-                    <button id="prev-btn" aria-label="Précédent" class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 cursor-pointer transition-all duration-300 ease-in-out active:scale-80">
-                        <i class="bi bi-arrow-left"></i>
-                    </button>
-
-                    <!-- Next buttons -->
-                    <button id="next-btn" aria-label="Suivant" class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-500 cursor-pointer transition-all duration-300 ease-in-out active:scale-80">
-                        <i class="bi bi-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Tech Stack -->
-            <h3 class="-mt-4 text-2xl font-semibold" data-aos="fade-in">Tech <span class="text-blue-500">Stack</span></h3>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
-                    <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/flask.webp" alt="Icône Flask">
-
-                    <div>
-                        <h3 class="text-lg font-semibold">Flask</h3>
-                        <p class="text-xs font-thin">Back-End (Python)</p>
+                <div class="sm:col-span-9 space-y-8 pointer-events-auto">
+                    <div class="flex flex-row flex-wrap justify-start items-center text-lg font-extrabold uppercase tracking-[-0.04em] sm:-translate-y-4 pointer-events-auto cursor-grab">
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Bash</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Bootstrap</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">C</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">CSS</span>
+                        <span class="inline-block px-1 py-1 text-4xl hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Docker</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Express</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Figma</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Firebase</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Flask</span>
+                        <span class="inline-block px-1 py-1 text-4xl hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Git</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">GitHub</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">HTML</span>
+                        <span class="inline-block px-1 py-1 text-4xl hover:text-red-600 hover:-translate-y-2 transition-all duration-300">JavaScript</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Markdown</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">MySQL</span>
+                        <span class="inline-block px-1 py-1 text-4xl hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Node.js</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">NoSQL</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Photoshop</span>
+                        <span class="inline-block px-1 py-1 text-4xl hover:text-red-600 hover:-translate-y-2 transition-all duration-300">PostgreSQL</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Python</span>
+                        <span class="inline-block px-1 py-1 text-4xl hover:text-red-600 hover:-translate-y-2 transition-all duration-300">React</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Supabase</span>
+                        <span class="inline-block px-1 py-1 text-4xl hover:text-red-600 hover:-translate-y-2 transition-all duration-300">Tailwind CSS</span>
+                        <span class="inline-block px-1 py-1 hover:text-red-600 hover:-translate-y-2 transition-all duration-300">TypeScript</span>
                     </div>
+
+                    <p class="text-sm text-zinc-500 leading-6">
+                        La <a class="text-red-600" href="https://www.holbertonschool.fr/methodologie" target="_blank" rel="noopener noreferrer">méthodologie</a> de formation que j’ai suivie m’a permis de développer une compétence clé : apprendre à apprendre, essentielle pour évoluer efficacement dans le domaine du développement.
+                        <br>
+                        En parallèle, mon parcours professionnel m’a apporté des compétences humaines solides, notamment en matière d’autonomie, d’écoute, de collaboration, ainsi qu’un véritable sens de la qualité et du détail.
+                        <br>
+                        Dans cette dynamique, je contribue également à la transmission des connaissances en rédigeant des ressources techniques en français, destinées aux étudiants et aux débutants en programmation, accessibles sur mon <a class="text-red-600" href="https://github.com/fchavonet/holbertonschool-concepts" target="_blank" rel="noopener noreferrer">GitHub</a>.
+                    </p>
                 </div>
-
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
-                    <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/nodejs.webp" alt="Icône Node.js">
-
-                    <div>
-                        <h3 class="text-lg font-semibold">Node.js</h3>
-                        <p class="text-xs font-thin">Back-End (JavaScript/TypeScript)</p>
-                    </div>
-                </div>
-
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
-                    <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/react.webp" alt="Icône React">
-
-                    <div>
-                        <h3 class="text-lg font-semibold">React</h3>
-                        <p class="text-xs font-thin">Front-End (JavaScript/TypeScript)</p>
-                    </div>
-                </div>
-
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
-                    <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/bootstrap.webp" alt="Icône Bootstrap">
-
-                    <div>
-                        <h3 class="text-lg font-semibold">Bootstrap</h3>
-                        <p class="text-xs font-thin">Front-End (CSS)</p>
-                    </div>
-                </div>
-
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
-                    <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/tailwindcss.webp" alt="Icône Tailwind CSS">
-
-                    <div>
-                        <h3 class="text-lg font-semibold">TailwindCSS</h3>
-                        <p class="text-xs font-thin">Front-End (CSS)</p>
-                    </div>
-                </div>
-
-                <div class="p-2 flex flex-row items-center gap-2 border border-zinc-700 rounded-xl bg-zinc-800/75" data-aos="fade-in">
-                    <img class="w-15 h-15 rounded-lg" src="./assets/images/icons/mysql.webp" alt="Icône MySQL">
-
-                    <div>
-                        <h3 class="text-lg font-semibold">MySQL</h3>
-                        <p class="text-xs font-thin">Base de données (SQL)</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-2 flex flex-col" data-aos="fade-in">
-                <p class="text-lg font-extralight">
-                    Pour accompagner les étudiants de la Holberton School mais aussi les débutants en programmation, je rédige des ressources techniques en français.
-                    <br>
-                    Retrouvez-les sur ce <a class="group relative font-normal text-blue-500" href="https://github.com/fchavonet/holbertonschool-concepts" rel="noopener noreferrer" target="_blank">dépôt GitHub<span class="w-0 h-0.25 absolute -bottom-0.5 left-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span><span class="w-0 h-0.25 absolute -bottom-0.5 right-1/2 bg-blue-500 transition-all group-hover:w-3/6"></span></a>.
-                </p>
             </div>
         </section>
 
         <!-- Contact section -->
-        <section id="contact-section" class="flex flex-col gap-4">
-            <h2 class="-mb-4 text-4xl font-semibold" data-aos="fade-in">Me contacter<i class="bi bi-send ms-2 text-2xl"></i></h2>
-
-            <form id="contact-form" class="grid grid-cols-1 gap-4">
-                <!-- Anti-bot honeypots -->
-                <label for="website" class="sr-only">Ne pas remplir, champ anti-bot</label>
-                <input id="website" class="absolute -left-[9999px]" type="text" name="website" tabindex="-1" autocomplete="off" />
-
-                <label for="fake_email" class="sr-only">Adresse e-mail factice (ne pas utiliser)</label>
-                <input id="fake_email" class="hidden" type="email" name="fake_email" tabindex="-1" autocomplete="off" />
-
-                <div class="h-0 opacity-0 overflow-hidden">
-                    <label for="bot_trap" class="sr-only">Ne pas remplir ce champ (anti-bot)</label>
-                    <input id="bot_trap" class="sr-only" type="text" name="bot_trap" tabindex="-1" aria-hidden="true" autocomplete="off" />
+        <section id="contact-section" class="mx-6 sm:mx-12 py-28 border-t border-zinc-500">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-12">
+                <div class="sm:col-span-3">
+                    <h2 class="flex flex-row justify-start items-center gap-2 text-xs uppercase tracking-[0.24em] text-zinc-500">
+                        <span class="block w-3 h-3 bg-red-600"></span>
+                        Contact
+                    </h2>
                 </div>
 
-                <!-- Form fields -->
-                <div data-aos="fade-in">
-                    <label class="mb-1 block" for="name">Nom&nbsp;:</label>
-                    <input id="name" class="w-full px-2 py-1 border border-zinc-700 rounded-lg bg-zinc-800/75 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:shadow-lg focus:shadow-blue-500/30" name="name" type="text" maxlength="50" autocomplete="off" required>
+                <div class="sm:col-span-9 space-y-12 pointer-events-auto">
+                    <div class="-translate-y-2">
+                        <a class="inline-block text-xl sm:text-3xl lg:text-5xl xl:text-6xl font-extrabold uppercase hover:text-red-600 hover:translate-x-6 transition-all duration-200" href="mailto:contact@fchavonet.dev">contact@fchavonet.dev</a>
+                    </div>
+
+                    <ul class="flex flex-row justify-end items-center gap-4">
+                        <li class="tooltip tooltip-bottom custom-tooltip" data-tip="GitHub">
+                            <a class="text-red-600" href="https://github.com/fchavonet" target="_blank" rel="noopener noreferrer" aria-label="Lien vers le GitHub de Fabien Chavonet">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github w-6 h-6" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li class="tooltip tooltip-bottom custom-tooltip" data-tip="LinkedIn">
+                            <a class="text-red-600" href="https://www.linkedin.com/in/fchavonet/" target="_blank" rel="noopener noreferrer" aria-label="Lien vers le LinkedIn de Fabien Chavonet">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-linkedin w-6 h-6" viewBox="0 0 16 16">
+                                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li class="tooltip tooltip-bottom custom-tooltip" data-tip="Instagram">
+                            <a class="text-red-600" href="https://www.instagram.com/pandolowitz/" target="_blank" rel="noopener noreferrer" aria-label="Lien vers l'Instagram de Fabien Chavonet">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-instagram w-6 h-6" viewBox="0 0 16 16">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-
-                <div data-aos="fade-in">
-                    <label class="mb-1 block" for="email">E-mail&nbsp;:</label>
-                    <input id="email" class="w-full px-2 py-1 border border-zinc-700 rounded-lg bg-zinc-800/75 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:shadow-lg focus:shadow-blue-500/30" name="email" type="email" maxlength="50" autocomplete="off" required>
-                </div>
-
-                <div data-aos="fade-in">
-                    <label class="mb-1 block" for="message">Message&nbsp;:</label>
-                    <textarea id="message" class="w-full px-2 py-1 border border-zinc-700 rounded-lg bg-zinc-800/75 resize-none transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:shadow-lg focus:shadow-blue-500/30" name="message" rows="3" maxlength="500" autocomplete="off" required></textarea>
-
-                    <div id="message-char-count" class="me-2 flex flex-row justify-end items-center text-zinc-500">0/500</div>
-                </div>
-
-                <button id="send-button" class="w-full p-2 flex justify-center items-center border border-blue-500 rounded-lg bg-blue-500 cursor-pointer transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none" type="submit" data-aos="fade-in">
-                    Envoyer
-                </button>
-            </form>
+            </div>
         </section>
-    </main>
 
-    <!-- LOADER -->
-    <div id="loader" class="fixed inset-0 flex justify-center items-center bg-zinc-950 z-50 transition-all duration-1000 ease-in-out">
-        <span class="loading loading-infinity spinner w-16 h-16 text-blue-500 transition-all duration-500 ease-in-out"></span>
-    </div>
+        <div class="fixed inset-0 max-w-7xl mx-auto pointer-events-none z-50">
+            <button class="absolute right-0 top-0 sm:top-auto sm:bottom-0 p-6 sm:p-12 pointer-events-auto cursor-pointer" onclick="toggleTheme()" aria-label="Changer le thème">
+                <div class="relative w-4 h-4">
+                    <!-- Sun -->
+                    <svg class="absolute inset-0 w-full rotate-90 scale-0 opacity-0 dark:rotate-0 dark:scale-100 dark:opacity-100 transform transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                    </svg>
+
+                    <!-- Moon -->
+                    <svg class="absolute inset-0 w-full rotate-0 scale-100 opacity-100 dark:-rotate-90 dark:scale-0 dark:opacity-0 transform transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </main>
 </body>
 
 </html>
