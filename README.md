@@ -6,9 +6,9 @@ This repository contains all versions of my personal website, developed progress
 
 Each version reflects a different stage of learning and experimentation:
 
-- v1.0: focuses on rapid development using Bootstrap.
-- v2.0: introduces a more structured design approach with Tailwind CSS.
-- v3.0: emphasizes minimalism, typography, and content clarity.
+- [v1.0](./v1.0/): focuses on rapid development using Bootstrap.
+- [v2.0](./v2.0/): introduces a more structured design approach with Tailwind CSS.
+- [v3.0](./v3.0/): emphasizes minimalism, typography, and content clarity.
 
 Together, these iterations showcase both technical progression and evolving design thinking.
 
