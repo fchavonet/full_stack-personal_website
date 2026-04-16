@@ -13,3 +13,136 @@ function toggleTheme() {
     localStorage.setItem("theme", "dark");
   }
 }
+
+
+/*****************************
+* GITHUB STATISTICS BEHAVIOR *
+*****************************/
+
+const GITHUB_USER = "fchavonet";
+const CACHE_KEY = "github_stats_cache";
+const ETAG_KEY_USER = "github_etag_user";
+const ETAG_KEY_REPOS = "github_etag_repos";
+const EXPIRATION_KEY = "github_stats_expiration";
+
+// Cache expiration duration: 24 hours.
+const CACHE_DURATION = 24 * 60 * 60 * 1000;
+
+// Fetch data with conditional request using ETag.
+async function fetchWithEtag(url, etagKey) {
+  const headers = { "Accept": "application/vnd.github.v3+json" };
+  const savedEtag = localStorage.getItem(etagKey);
+
+  if (savedEtag) {
+    headers["If-None-Match"] = savedEtag;
+  }
+
+  const response = await fetch(url, { headers: headers });
+
+  if (response.status === 304) {
+    // Resource has not changed since last fetch.
+    return null;
+  }
+
+  if (!response.ok) {
+    throw new Error("GitHub API error (" + response.status + ")");
+  }
+
+  const newEtag = response.headers.get("ETag");
+
+  if (newEtag) {
+    localStorage.setItem(etagKey, newEtag);
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+// Fetch GitHub stats or use cached data.
+async function updateGitHubStats() {
+  const now = Date.now();
+  const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "null");
+  const expiration = parseInt(localStorage.getItem(EXPIRATION_KEY) || "0", 10);
+
+  // Use cached stats if still valid.
+  if (cached && now < expiration) {
+    displayStats(cached);
+    populateProjectStars(cached.repos);
+    return;
+  }
+
+  try {
+    // Fetch user and repo data from GitHub.
+    const [userData, reposData] = await Promise.all([
+      fetchWithEtag("https://api.github.com/users/" + GITHUB_USER, ETAG_KEY_USER),
+      fetchWithEtag("https://api.github.com/users/" + GITHUB_USER + "/repos?per_page=100", ETAG_KEY_REPOS)
+    ]);
+
+    // If no new data and cache is available, use cache.
+    if (userData === null && reposData === null && cached) {
+      displayStats(cached);
+      populateProjectStars(cached.repos);
+      localStorage.setItem(EXPIRATION_KEY, now + CACHE_DURATION);
+      return;
+    }
+
+    const finalUser = userData || cached.user;
+    const finalRepos = reposData || cached.repos;
+
+    // Count total stars across all repositories.
+    let totalStars = 0;
+    for (let repo of finalRepos) {
+      totalStars += repo.stargazers_count;
+    }
+
+    // Store relevant stats.
+    const stats = {
+      user: {
+        public_repos: finalUser.public_repos,
+        followers: finalUser.followers
+      },
+      repos: finalRepos,
+      stars: totalStars
+    };
+
+    // Save to localStorage for 24h.
+    localStorage.setItem(CACHE_KEY, JSON.stringify(stats));
+    localStorage.setItem(EXPIRATION_KEY, now + CACHE_DURATION);
+
+    // Display data in DOM.
+    displayStats(stats);
+    populateProjectStars(finalRepos);
+
+  } catch (error) {
+    console.error("Error updating GitHub statistics:", error);
+    document.getElementById("repo-count").textContent = "...";
+    document.getElementById("followers-count").textContent = "...";
+    document.getElementById("stars-count").textContent = "...";
+  }
+}
+
+// Update DOM elements with stats.
+function displayStats(stats) {
+  document.getElementById("repo-count").textContent = stats.user.public_repos;
+  document.getElementById("followers-count").textContent = stats.user.followers;
+  document.getElementById("stars-count").textContent = stats.stars;
+}
+
+// Fetch and display stars for each GitHub project card.
+function populateProjectStars(repos) {
+  const links = document.querySelectorAll("a[data-repo]");
+  for (let link of links) {
+    const repoName = link.dataset.repo;
+    let count = "—";
+    for (let repo of repos) {
+      if (repo.name === repoName) {
+        count = repo.stargazers_count;
+        break;
+      }
+    }
+    const placeholder = link.querySelector(".stars-placeholder");
+    placeholder.textContent = count;
+  }
+}
+
+updateGitHubStats();
